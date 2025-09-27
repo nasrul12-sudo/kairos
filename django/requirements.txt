@@ -1,0 +1,20 @@
+# Core Django
+Django>=4.2,<5.0
+
+# Supabase client
+supabase>=2.3.4
+
+# Ultralytics YOLO
+ultralytics>=8.0.196
+
+# Image handling (Pillow untuk Django ImageField atau YOLO opsional)
+pillow>=10.0.0
+
+# HTTP requests ke Supabase Auth
+requests>=2.31.0
+
+# Gunicorn untuk production server (Render/Railway pakai ini)
+gunicorn>=21.2.0
+
+# python-dotenv untuk load .env (SUPABASE_URL, SUPABASE_KEY)
+python-dotenv>=1.0.1
