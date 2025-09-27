@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login User</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input class="form-control mb-2" type="text" name="username" placeholder="Username">
+    <input class="form-control mb-2" type="password" name="password" placeholder="Password">
+    <button class="btn btn-primary">Login</button>
+  </form>
+  <div id="loginResult" class="mt-3"></div>
+
+  <script>
+    document.getElementById("loginForm").onsubmit = async function(e){
+      e.preventDefault();
+      let formData = {
+        username: this.username.value,
+        password: this.password.value
+      };
+      let res = await fetch("/api/login/", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(formData)
+      });
+      let data = await res.json();
+      document.getElementById("loginResult").innerText = JSON.stringify(data);
+    }
+  </script>
+</body>
+</html>
